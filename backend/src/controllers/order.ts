@@ -18,7 +18,6 @@ const createOrder = async (
     );
 
     let calculatedTotal = 0;
-    // eslint-disable-next-line no-restricted-syntax
     for (let i = 0; i < products.length; i += 1) {
       const product = products[i];
       if (!product) {

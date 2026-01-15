@@ -5,7 +5,6 @@ import mongoose from 'mongoose';
 import path from 'path';
 
 import { DB_ADDRESS, PORT } from './config';
-import NotFoundError from './errors/not-found-error';
 import errorHandler from './middlewares/error-handler';
 import { errorLogger, requestLogger } from './middlewares/logger';
 import router from './routes';
@@ -29,11 +28,6 @@ app.use(express.static(publicPath));
 
 // Маршруты
 app.use('/', router);
-
-// Обработка несуществующих маршрутов (404)
-app.use((_req, _res, next) => {
-  next(new NotFoundError('Маршрут не найден'));
-});
 
 // Логгер ошибок
 app.use(errorLogger);
